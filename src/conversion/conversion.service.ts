@@ -17,9 +17,18 @@ export class ConversionService {
       private readonly httpService: HttpService,
         @InjectRepository(Conversion) private conversionRepository: Repository<Conversion>
       ) {}
-    
-      async createConversion(conversion: CreateConversionDto): Promise<Conversion> {
-        const newConversion: Conversion = this.conversionRepository.create(conversion);
+
+      async getConversions(user:any): Promise<Conversion[]> {
+        return await this.conversionRepository.find({
+          user: user.userId
+        });
+      }
+
+      async createConversion(conversion: CreateConversionDto, user:any): Promise<Conversion> {
+        const newConversion: Conversion = this.conversionRepository.create({
+          ...conversion,
+          user: user.userId
+        });
 
         const result = await this.convert(conversion.currencyFrom,conversion.currencyTo,conversion.amountInitial)
         newConversion.amountResult = result?result:-1
