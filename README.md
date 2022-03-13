@@ -13,7 +13,13 @@ In this README file, we will explain how we can run our currency converter backe
 
 -This way is way easier than the previous one cause you don't need to install any dependencies, you just need docker and docker-compose installed in your computer
 -Before building the docker image for our backend, make sure that the host in the TypeOrmModule config is set to "mysql_db"
--In this case, our .env variables can't be red inside the container because of the production environment, so we have the set it as and env variable in our OS or just hard code it in the conversion.service.ts in currency_api ( second option is easier but dont recommand it )
+-Our .env variables can't be red inside the container because of the production environment, so we have the set it as an env variable in our OS or just hard code it in the conversion.service.ts in currency_api ( second option is easier but dont recommand it )
+-Create the docker volume for our container database for data persistency using : "docker volume create currency-converter-db"
+-Create the database in our mysql container using :
+  docker run -d -v /var/lib/docker/volumes/currency-converter-db/_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=sofiene mysql
+  docker exec -it container-id bash // container-id can be get using docker ps
+  mysql -u root -p // here provide "sofiene" as a password
+  create database currency_converter;
 -Build the application using "docker build -t currency-converter ." , this will generate a docker image called currency-converter
 -Run the backend app and mysql db containers together with our docker-compose.yaml file using "docker-compse up"
 
@@ -41,3 +47,5 @@ In this README file, we will explain how we can run our currency converter backe
 *Dont forget to put your jwt token in the header of your request and you will get response containing the amountResult and the date
 -To get your conversions history, send a get request to /conversion/history 
 *Dont forget to put your jwt token in the header of your request and you will get response containing all the conversions you made with the date
+
+NOTE: any request sent to /conversion/convert or /conversion/history without the jwt token will have a 401 unauthorized response
