@@ -1,6 +1,6 @@
 export class CreateConversionDto {
-    readonly currencyFrom: String
-    readonly currencyTo: String
-    readonly amountInitial: Number
+    readonly currencyFrom: string
+    readonly currencyTo: string
+    readonly amountInitial: number
   }
   

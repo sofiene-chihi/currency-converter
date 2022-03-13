@@ -8,8 +8,8 @@ export class ConversionController {
 
   constructor(private readonly conversionService: ConversionService) {}
 
-//   @Post('convert')
-//   createConversion(@Body() createConversionDto: CreateConversionDto): Promise<Conversion> {
-//     return this.conversionService.createConversion(createConversionDto);
-//   }
+  @Post('convert')
+  createConversion(@Body() createConversionDto: CreateConversionDto): Promise<Conversion> {
+    return this.conversionService.createConversion(createConversionDto);
+  }
 }
