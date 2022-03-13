@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { ConversionModule } from './conversion/conversion.module';
 import { Conversion } from './conversion/conversion.entity';
 import { User } from './user/user.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { User } from './user/user.entity';
     }),
     UserModule,
     ConversionModule,
+    AuthModule,
 
   ],
   controllers: [AppController],
