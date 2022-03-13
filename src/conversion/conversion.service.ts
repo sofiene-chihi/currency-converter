@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 @Injectable()
 export class ConversionService {
-
+  
   currency_api = `http://api.currencylayer.com/live?access_key=${process.env.CURRENCY_API_SECRET}&currencies=CHF,EUR`
 
     constructor(
