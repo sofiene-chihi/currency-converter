@@ -16,11 +16,11 @@ In this README file, we will explain how we can run our currency converter backe
 
 ************* RUNNING THE NEST REST API USING DOCKER CONTAINER ********************
 
--This way is way easier than the previous one cause you don't need to install any dependencies, you just need docker and docker-compose installed in your computer
+-This way is way easier than the previous one because you don't need to install any dependencies, you just need docker and docker-compose installed in your computer
 
 -Before building the docker image for our backend, make sure that the host in the TypeOrmModule config is set to "mysql_db"
 
--Our .env variables can't be red inside the container because of the production environment, so we have the set it as an env variable in our OS or just hard code it in the conversion.service.ts in currency_api ( second option is easier but dont recommand it )
+-Our .env variables can't be read inside the container because of the production environment, so we have the set it as an env variable in our OS or just hard code it in the conversion.service.ts in currency_api ( second option is easier but dont recommand it )
 
 -Create the docker volume for our container database for data persistency using : "docker volume create currency-converter-db"
 
