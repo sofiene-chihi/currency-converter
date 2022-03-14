@@ -14,7 +14,7 @@ In this README file, we will explain how we can run our currency converter backe
 
 -Run the backend using "npm run start:dev"
 
-************* RUNNING THE NEST REST API USING DOCKER CONTAINER ********************
+************* BUILDING THE DOCKER IMAGE AND RUNNING THE BACKEND WITH DOCKER-COMPOSE ********************
 
 -This way is way easier than the previous one because you don't need to install any dependencies, you just need docker and docker-compose installed in your computer
 
@@ -32,8 +32,13 @@ In this README file, we will explain how we can run our currency converter backe
 
 -Build the application using "docker build -t currency-converter ." , this will generate a docker image called currency-converter
 
--Run the backend app and mysql db containers together with our docker-compose.yaml file using "docker-compse up"
+-Change the image name under currency-converter service to currency-converter and Run the backend app and mysql db containers together with our docker-compose.yaml file using "docker-compse up" 
 
+************* RUNNING THE BACKEND ONLY WITH DOCKER-COMPOSE ********************
+
+-Here comes the easiest way to run our currency converter REST API, and that is just by running the docker-compose file thanks the dockerhub who can save our image in a repository and pull whenever we want to run it (in case docker cant find the image locally)
+-Before running the docker-compose, we have to configure our database by creating the docker volume and the database inside our mysql container as in the previous section
+-Run the docker-compose file with "docker-compose up" and that's all to have our backend ( nest + mysql ) running
 
 ************* HOW TO USE OUR REST API ********************
 

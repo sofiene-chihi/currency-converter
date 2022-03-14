@@ -11,7 +11,7 @@ services:
       - /var/lib/docker/volumes/currency-converter-db/_data:/var/lib/mysql
 
   currency-converter:
-    image: currency-converter:latest
+    image: sofienechihi/my-public-repo:currency-converter
     restart: on-failure
     depends_on:
       - mysql_db
