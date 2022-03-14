@@ -36,8 +36,10 @@ In this README file, we will explain how we can run our currency converter backe
 
 ************* RUNNING THE BACKEND ONLY WITH DOCKER-COMPOSE ********************
 
--Here comes the easiest way to run our currency converter REST API, and that is just by running the docker-compose file thanks the dockerhub who can save our image in a repository and pull whenever we want to run it (in case docker cant find the image locally)
+-Here comes the easiest way to run our currency converter REST API, and that is just by running the docker-compose file thanks to dockerhub who can save our image in a repository and pull it whenever we want to run it (in case docker cant find the image locally)
+
 -Before running the docker-compose, we have to configure our database by creating the docker volume and the database inside our mysql container as in the previous section
+
 -Run the docker-compose file with "docker-compose up" and that's all to have our backend ( nest + mysql ) running
 
 ************* HOW TO USE OUR REST API ********************
