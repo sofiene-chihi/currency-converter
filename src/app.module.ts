@@ -12,11 +12,11 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'sofiene',
-      database: 'currency_converter',
+      host: process.env.HOST,
+      port: +process.env.MYSQLDB_LOCAL_PORT,
+      username: process.env.MYSQLDB_USER,
+      password: process.env.MYSQLDB_ROOT_PASSWORD,
+      database: process.env.MYSQL_DATABASE,
       entities: [User,Conversion],
       synchronize: true,
     }),
